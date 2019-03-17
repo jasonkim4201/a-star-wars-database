@@ -9,11 +9,11 @@ const charactersSchema = new Schema({
     required: true
   },
   height: {
-    type: Number,
+    type: String,
     required: true
   },
   mass: {
-    type: Number,
+    type: String,
     required: true
   },
   hair_color: {
@@ -34,7 +34,7 @@ const charactersSchema = new Schema({
   },
   gender: {
     type: String,
-    required
+    required: true
   }
 });
 
