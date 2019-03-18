@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Nav = (props) => {
   return(
-    <ul className="nav justify-content-center">
+    <ul className="nav justify-content-center navArea">
       <li className="nav-item">
         <NavLink to="/" className="nav-link">Home</NavLink>
       </li>

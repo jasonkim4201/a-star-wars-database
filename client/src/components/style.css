@@ -1,9 +1,22 @@
 .customHeader {
   height: 100px;
   background-color: #333;
-  color: whitesmoke;
+  color: gold;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.navArea {
+  background-color: #37474F;
+}
+
+.nav-link {
+  color: gold
+}
+
+.nav-link:hover {
+  background: #263238;
+  color: gold;
 }
