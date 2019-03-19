@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import queryAPI from "../utils/queryAPI";
 import charactersAPI from "../utils/charactersAPI";
 import SearchBar from "../components/Searchbar";
-/* import Searchbar from "../components/Searchbar"; */ //commented out for now to stop getting warnings about not using it
+import SearchAllBtn from "../components/SearchAllBtn";
+import Cards from "../components/Cards";
 
 class Characters extends Component {
   state = {
@@ -49,6 +50,9 @@ class Characters extends Component {
           };
         });
         console.log(charactersList);
+        // remember to set the state so search appears lol
+        // uh oh all other results get over ridden in state. time to concat all arrays together and set the whole thing as state
+        this.setState({ charactersList });
       })
       .catch(error => {
         console.log(error);
@@ -75,6 +79,8 @@ class Characters extends Component {
   }
 
   /* okay so the api only returns a max of 10 items in a search or lets try a for in loop with all the links...and it works! */
+  /* have another idea with paginations and using res.data.next(and .previous) combined with a generator funciton will come back to it later */
+
   handleShowAll = () => {
     const charactersArray = [
       "https://swapi.co/api/people/",
@@ -112,25 +118,28 @@ class Characters extends Component {
       <React.Fragment>
         <div className="text-light">
           <div className="my-5 container">
-            <SearchBar
-            onSubmit={this.handleFormSubmit}
-            placeholder={"Search for characters...."}
-            name="searchTerm"
-            onChange={this.handleInputChange}
-            value={this.state.searchTerm}
-            onClick={this.handleFormSubmit}
+            <SearchBar onSubmit={this.handleFormSubmit} placeholder={"Search for characters...."} name="searchTerm"
+              onChange={this.handleInputChange} value={this.state.searchTerm} onClick={this.handleFormSubmit}
             />
-
             <br />
-            
-            {/* Will probably do the same and make a component out of the show all button  */}
-            <p className="text-center">Don't know what to search?</p>
-            <div className="d-flex justify-content-center">
-              <button className="btn btn-danger" onClick={this.handleShowAll}>Show all</button>
-            </div>
-
-
+            <SearchAllBtn word="character" onClick={this.handleShowAll} />
           </div>
+
+          {/* place results here with a fuild container */}
+          <div className="container-fluid">
+            <h5>Your search results:</h5>
+            <div className="row d-flex justify-content-center text-dark">
+              {/* this is where i will map out my cards */}
+              {this.state.charactersList.map(character => {
+                return (
+                  <Cards
+                    key={character.name} name={character.name} birth={character.birth_year} height={character.height} mass={character.mass} gender={character.gender} skin={character.skin_color} hair={character.hair_color} eye={character.eye_color}
+                  />
+                )
+              })}
+            </div>
+          </div>
+
         </div>
       </React.Fragment>
     )
