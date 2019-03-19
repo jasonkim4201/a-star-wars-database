@@ -1,6 +1,6 @@
 import React from "react";
 
-const SearchAllBtn = (props) => {
+const SearchRandomBtn = (props) => {
   return (
     <React.Fragment>
       <p className="text-center">Don't know what {props.word} to search?</p>
@@ -11,4 +11,4 @@ const SearchAllBtn = (props) => {
   )
 }
 
-export default SearchAllBtn;
+export default SearchRandomBtn;

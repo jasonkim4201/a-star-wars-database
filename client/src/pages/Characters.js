@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import queryAPI from "../utils/queryAPI";
 import charactersAPI from "../utils/charactersAPI";
 import SearchBar from "../components/Searchbar";
-import SearchAllBtn from "../components/SearchAllBtn";
+import SearchRandomBtn from "../components/SearchRandom";
 import Cards from "../components/Cards";
+
 
 class Characters extends Component {
   state = {
@@ -34,7 +35,7 @@ class Characters extends Component {
       });
   }
 
-  searchAllCharacters = query => {
+  searchRandomPage = query => {
     queryAPI.queryAllCharacters(query)
       .then(res => {
         const charactersList = res.data.results.map(character => {
@@ -50,36 +51,20 @@ class Characters extends Component {
           };
         });
         console.log(charactersList);
-        
-        // remember to set the state so search appears lol
-        // uh oh all other results get over ridden in state. time to concat all arrays together and set the whole thing as state
-        // since the for in loop repeats x amount of times i cannot set state here
-        // so for each characters list i should try making a another function which will
+        this.setState({ charactersList });
       })
       .catch(error => {
         console.log(error);
       })
   }
-  /* okay so the api only returns a max of 10 items in a search or lets try a for in loop with all the links...and it works! */
-  /* have another idea with paginations and using res.data.next(and .previous) combined with a generator funciton will come back to it later */
 
-  handleShowAll = () => {
-    /* const charactersArray = [
-      "https://swapi.co/api/people/",
-      "https://swapi.co/api/people/?page=2",
-      "https://swapi.co/api/people/?page=3",
-      "https://swapi.co/api/people/?page=4",
-      "https://swapi.co/api/people/?page=5",
-      "https://swapi.co/api/people/?page=6",
-      "https://swapi.co/api/people/?page=7",
-      "https://swapi.co/api/people/?page=8",
-      "https://swapi.co/api/people/?page=9"
-    ];
- */
-    /* for (const charactersUrl of charactersArray) {
-      this.searchAllCharacters(charactersUrl);
-    } */
-    console.log(`removed button function until further notice`)    
+  newArray = [];
+  
+  handleShowRandom = () => {
+    // I'm too dumb to get it the special way i wanted so we'll just go with random pages 😔
+    const randomPage = Math.floor(Math.random() * 9);
+    const urlLink = `https://swapi.co/api/people/?page=${randomPage}`;
+    this.searchRandomPage(urlLink)
   }
 
   handleInputChange = event => {
@@ -111,7 +96,6 @@ class Characters extends Component {
       })
       .catch(error => {
         console.log(error);
-        console.log(`oops`)
       })
   }
 
@@ -124,11 +108,14 @@ class Characters extends Component {
               onChange={this.handleInputChange} value={this.state.searchTerm} onClick={this.handleFormSubmit}
             />
             <br />
-            <SearchAllBtn word="character" onClick={this.handleShowAll} />
+            <SearchRandomBtn word="character" onClick={this.handleShowRandom} />
           </div>
 
           {/* place results here with a fuild container */}
           <div className="container-fluid">
+              {/* if there's something in characters list then search result stuff will appear */}
+            {this.state.charactersList.length > 0 &&
+            <React.Fragment>
             <h5>Your search results:</h5>
             <div className="row d-flex justify-content-center">
               {/* this is where i will map out my cards */}
@@ -140,6 +127,9 @@ class Characters extends Component {
                 )
               })}
             </div>
+            </React.Fragment>
+            }
+
           </div>
 
         </div>
