@@ -50,13 +50,36 @@ class Characters extends Component {
           };
         });
         console.log(charactersList);
+        
         // remember to set the state so search appears lol
         // uh oh all other results get over ridden in state. time to concat all arrays together and set the whole thing as state
-        this.setState({ charactersList });
+        // since the for in loop repeats x amount of times i cannot set state here
+        // so for each characters list i should try making a another function which will
       })
       .catch(error => {
         console.log(error);
       })
+  }
+  /* okay so the api only returns a max of 10 items in a search or lets try a for in loop with all the links...and it works! */
+  /* have another idea with paginations and using res.data.next(and .previous) combined with a generator funciton will come back to it later */
+
+  handleShowAll = () => {
+    /* const charactersArray = [
+      "https://swapi.co/api/people/",
+      "https://swapi.co/api/people/?page=2",
+      "https://swapi.co/api/people/?page=3",
+      "https://swapi.co/api/people/?page=4",
+      "https://swapi.co/api/people/?page=5",
+      "https://swapi.co/api/people/?page=6",
+      "https://swapi.co/api/people/?page=7",
+      "https://swapi.co/api/people/?page=8",
+      "https://swapi.co/api/people/?page=9"
+    ];
+ */
+    /* for (const charactersUrl of charactersArray) {
+      this.searchAllCharacters(charactersUrl);
+    } */
+    console.log(`removed button function until further notice`)    
   }
 
   handleInputChange = event => {
@@ -76,28 +99,6 @@ class Characters extends Component {
     }
     // this will allow be to enter the search query
     this.searchCharacters(this.state.searchTerm);
-  }
-
-  /* okay so the api only returns a max of 10 items in a search or lets try a for in loop with all the links...and it works! */
-  /* have another idea with paginations and using res.data.next(and .previous) combined with a generator funciton will come back to it later */
-
-  handleShowAll = () => {
-    const charactersArray = [
-      "https://swapi.co/api/people/",
-      "https://swapi.co/api/people/?page=2",
-      "https://swapi.co/api/people/?page=3",
-      "https://swapi.co/api/people/?page=4",
-      "https://swapi.co/api/people/?page=5",
-      "https://swapi.co/api/people/?page=6",
-      "https://swapi.co/api/people/?page=7",
-      "https://swapi.co/api/people/?page=8",
-      "https://swapi.co/api/people/?page=9"
-    ];
-
-    for (const charactersUrl of charactersArray) {
-      this.searchAllCharacters(charactersUrl);
-    }
-
   }
 
   saveCharacter = characterName => {
@@ -128,7 +129,7 @@ class Characters extends Component {
           {/* place results here with a fuild container */}
           <div className="container-fluid">
             <h5>Your search results:</h5>
-            <div className="row d-flex justify-content-center text-dark">
+            <div className="row d-flex justify-content-center">
               {/* this is where i will map out my cards */}
               {this.state.charactersList.map(character => {
                 return (
