@@ -16,7 +16,7 @@ const Cards = (props) => {
         <div>Skin color: {props.skin}</div>
         <div>Hair color: {props.hair}</div>
         <div>Eye color: {props.eye}</div>
-        <button className="mt-3 btn btn-sm btn-primary">Save</button>
+        <button onClick={() => props.onClick(props.name)} className="mt-3 btn btn-sm btn-primary">Save</button>
       </div>
     </div>
   )

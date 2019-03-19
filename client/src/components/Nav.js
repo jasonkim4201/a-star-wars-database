@@ -19,6 +19,9 @@ const Nav = (props) => {
       <li className="nav-item">
         <NavLink to="/vehicles" className="nav-link">Vehicles</NavLink>
       </li>
+      <li className="nav-item">
+        <NavLink to="/saved" className="nav-link">Saved</NavLink>
+      </li>
     </ul>
   )
 }

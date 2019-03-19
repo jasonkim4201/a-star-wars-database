@@ -111,6 +111,7 @@ class Characters extends Component {
       })
       .catch(error => {
         console.log(error);
+        console.log(`oops`)
       })
   }
 
@@ -134,7 +135,7 @@ class Characters extends Component {
               {this.state.charactersList.map(character => {
                 return (
                   <Cards
-                    key={character.name} name={character.name} birth={character.birth_year} height={character.height} mass={character.mass} gender={character.gender} skin={character.skin_color} hair={character.hair_color} eye={character.eye_color}
+                    key={character.name} name={character.name} birth={character.birth_year} height={character.height} mass={character.mass} gender={character.gender} skin={character.skin_color} hair={character.hair_color} eye={character.eye_color} onClick={this.saveCharacter}
                   />
                 )
               })}
