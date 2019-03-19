@@ -50,7 +50,6 @@ class Characters extends Component {
       })
       .catch(error => {
         console.log(error);
-        alert("yeah u fucked up big time retard");
       })
   }
 
@@ -73,8 +72,7 @@ class Characters extends Component {
     this.searchCharacters(this.state.searchTerm);
   }
 
-  /* fucking API has a limit of 10 results
-  per page or here's a modern fucking solution for that */
+  /* okay so the api only returns a max of 10 items in a search or lets try a for in loop with all the links...and it works! */
   handleShowAll = () => {
     const charactersArray = [
       "https://swapi.co/api/people/",
@@ -112,6 +110,7 @@ class Characters extends Component {
       <React.Fragment>
         <div className="text-light">
           <div className="my-5 container">
+          
             <form onSubmit={this.handleFormSubmit}>
               <div className="input-group">
                 <input
