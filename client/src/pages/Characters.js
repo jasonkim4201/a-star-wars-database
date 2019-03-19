@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import queryAPI from "../utils/queryAPI";
 import charactersAPI from "../utils/charactersAPI";
+import SearchBar from "../components/Searchbar";
 /* import Searchbar from "../components/Searchbar"; */ //commented out for now to stop getting warnings about not using it
 
 class Characters extends Component {
@@ -111,29 +112,17 @@ class Characters extends Component {
       <React.Fragment>
         <div className="text-light">
           <div className="my-5 container">
-          {/* replace below later with a searchbar component to reduce clutter and create separation of concerns */}
-            <form onSubmit={this.handleFormSubmit}>
-              <div className="input-group">
-                <input
-                  type="input"
-                  className="form-control"
-                  placeholder="Search for characters..."
-                  name="searchTerm"
-                  onChange={this.handleInputChange}
-                  value={this.state.searchTerm}
-                />
-                <div className="input-group-append">
-                  <button
-                    className="btn btn-outline-info text-light"
-                    onClick={this.handleFormSubmit}
-                  >
-                    Search
-                  </button>
-                </div>
-              </div>
-            </form>
+            <SearchBar
+            onSubmit={this.handleFormSubmit}
+            placeholder={"Search for characters...."}
+            name="searchTerm"
+            onChange={this.handleInputChange}
+            value={this.state.searchTerm}
+            onClick={this.handleFormSubmit}
+            />
 
             <br />
+            
             {/* Will probably do the same and make a component out of the show all button  */}
             <p className="text-center">Don't know what to search?</p>
             <div className="d-flex justify-content-center">
