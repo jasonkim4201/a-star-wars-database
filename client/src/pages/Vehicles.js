@@ -9,6 +9,20 @@ class Vehicles extends Component {
     vehiclesList: []
   }
 
+  // make search vehicles
+
+  // search random vehicles
+
+  // handleinputchange
+
+  // handleformchange
+
+  // handleformsumbmit
+
+  // handlesearch random
+
+  // save vehicles
+
   render() {
     return(
       <React.Fragment>
