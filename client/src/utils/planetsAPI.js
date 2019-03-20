@@ -12,6 +12,6 @@ export default {
   },
   // hey, make sure you add a way to update planets. you know...for science... pls dont forget
   deletePlanet(planetId) {
-    return axios.delete(`/api/planets${planetId}`);
+    return axios.delete(`/api/planets/${planetId}`);
   }
 }

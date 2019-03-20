@@ -104,7 +104,7 @@ class Planets extends Component {
                   {this.state.planetsList.map(planet => {
                     return (
                       <Cards key={planet.name} name={planet.name} prop1={`Rotation period: ${planet.rotation_period}`} prop2={`Orbital  Period: ${planet.orbital_period}`} prop3={`Diameter: ${planet.diameter}`} prop4={`Climate: ${planet.climate}`}
-                       prop5={`Gravity: ${planet.gravity}`} prop6={`Terrain: ${planet.terrain}`} prop7={`Surface water: ${planet.surface_water}`} prop8={`Population: ${planet.population}`}
+                       prop5={`Gravity: ${planet.gravity}`} prop6={`Terrain: ${planet.terrain}`} prop7={`Surface water: ${planet.surface_water}`} prop8={`Population: ${planet.population}`} onClick={this.savePlanet}
                       />
                     )
                   })}
