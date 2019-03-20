@@ -3,6 +3,7 @@ import SearchBar from "../components/Searchbar";
 import SearchRandomBtn from "../components/SearchRandom";
 import queryAPI from "../utils/queryAPI";
 import starshipsAPI from "../utils/starshipsAPI";
+import Cards from "../components/Cards";
 
 class Starships extends Component {
   state = {
@@ -91,12 +92,25 @@ class Starships extends Component {
       <React.Fragment>
         <div className="text-light">
           <div className="my-5 container">
-            <SearchBar />
+            <SearchBar placeholder="Search a starship..." name="searchTerm" value={this.state.searchTerm} onSubmit={this.handleFormSubmit} onChange={this.handleInputChange} onClick={this.handleFormSubmit}/>
             <br />
-            <SearchRandomBtn />
+            <SearchRandomBtn word="starship" onClick={this.handleSearchRandom}/>
           </div>
           <div className="container-fluid">
-            
+            {/* again, make sure searched items content only appears if there's a valid search ie something in starshipsList */}
+            {this.state.starshipsList.length > 0 &&
+              <React.Fragment>
+                <h5>Your search results:</h5>
+                <div className="row d-flex justify-content-center"> 
+                  {/* map each starship result into a card component */}
+                  {this.state.starshipsList.map(starship => {
+                    return (
+                      <Cards key={starship.name} name={starship.name} prop1={`Model: ${starship.model}`} prop2={`Manufacturer: ${starship.manufacturer}`} prop3={`Cost in credits: ${starship.cost_in_credits}`} prop4={`Crew: ${starship.crew}`} prop5={`Passengers: ${starship.passengers}`} prop6={`Cargo: ${starship.cargo}`} prop7={`Starship class: ${starship.starship_class}`}/>
+                    )
+                  })}
+                </div>
+              </React.Fragment>
+            }
           </div>
         </div>
       </React.Fragment>
