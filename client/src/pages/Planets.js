@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+  import React, {Component} from "react";
 import SearchBar from "../components/Searchbar";
 import SearchRandomBtn from "../components/SearchRandom";
 import queryAPI from "../utils/queryAPI";

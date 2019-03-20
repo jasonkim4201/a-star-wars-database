@@ -27,7 +27,7 @@ const starshipsSchema = new Schema({
     type: String,
     required: true
   },
-  cargo: {
+  cargo_capacity: {
     type: String,
     required: true
   },

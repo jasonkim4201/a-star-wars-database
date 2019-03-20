@@ -24,7 +24,7 @@ class Starships extends Component {
             cost_in_credits: starship.cost_in_credits,
             crew: starship.crew.crew,
             passengers: starship.passengers,
-            cargo: starship.cargo,
+            cargo_capacity: starship.cargo_capacity,
             starship_class: starship.starship_class
           };
         });
@@ -45,7 +45,7 @@ class Starships extends Component {
             cost_in_credits: starship.cost_in_credits,
             crew: starship.crew,
             passengers: starship.passengers,
-            cargo: starship.cargo,
+            cargo_capacity: starship.cargo_capacity,
             starship_class: starship.starship_class
           };
         });
@@ -105,7 +105,7 @@ class Starships extends Component {
                   {/* map each starship result into a card component */}
                   {this.state.starshipsList.map(starship => {
                     return (
-                      <Cards key={starship.name} name={starship.name} prop1={`Model: ${starship.model}`} prop2={`Manufacturer: ${starship.manufacturer}`} prop3={`Cost in credits: ${starship.cost_in_credits}`} prop4={`Crew: ${starship.crew}`} prop5={`Passengers: ${starship.passengers}`} prop6={`Cargo: ${starship.cargo}`} prop7={`Starship class: ${starship.starship_class}`}/>
+                      <Cards key={starship.name} name={starship.name} prop1={`Model: ${starship.model}`} prop2={`Manufacturer: ${starship.manufacturer}`} prop3={`Cost in credits: ${starship.cost_in_credits}`} prop4={`Crew: ${starship.crew}`} prop5={`Passengers: ${starship.passengers}`} prop6={`Cargo capacity: ${starship.cargo_capacity}`} prop7={`Starship class: ${starship.starship_class}`} onClick={this.saveStarship}/>
                     )
                   })}
                 </div>

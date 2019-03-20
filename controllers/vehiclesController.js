@@ -12,7 +12,7 @@ module.exports = {
       .catch(error => res.status(422).json(error));
   },
   saveVehicles(req, res) {
-    db.vehicles.create(req, res)
+    db.vehicles.create(req.body)
       .then(dbVehicles => res.json(dbVehicles))
       .catch(error => res.status(422).json(error));
   },

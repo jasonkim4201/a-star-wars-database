@@ -32,11 +32,11 @@ const vehiclesSchema = new Schema({
     type: String,
     required: true
   },
-  veheicle_class: {
+  vehicle_class: {
     type: String,
     required: true
   }
 });
 
-const veheicles = mongoose.model("vehicles", vehiclesSchema);
-module.exports = veheicles;
+const vehicles = mongoose.model("vehicles", vehiclesSchema);
+module.exports = vehicles;
