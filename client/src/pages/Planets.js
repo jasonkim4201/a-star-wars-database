@@ -72,7 +72,8 @@ class Planets extends Component {
   }
 // now work on the random search stuff
   handleSearchRandom = () => {
-    const randomPage = Math.floor(Math.random() * 7);
+    // +1 ensures we dont end up with a page 0 which will result in a 404 error
+    const randomPage = Math.floor(Math.random() * 7) + 1;
     const urlLink = `https://swapi.co/api/planets/?page=${randomPage}`;
     this.searchRandomPage(urlLink);
   }
@@ -92,7 +93,7 @@ class Planets extends Component {
           <div className="my-5 container">
             <SearchBar onSubmit={this.handleFormSubmit} placeholder="Search for a planet..." name="searchTerm" value={this.state.searchTerm} onChange={this.handleInputChange} onClick={this.handleFormSubmit}/>
             <br />
-            <SearchRandomBtn />
+            <SearchRandomBtn word="planet" onClick={this.handleSearchRandom} />
           </div>
           <div className="container-fluid">
             {/* reminder to only show characters list if there is a valid search */}
@@ -102,7 +103,9 @@ class Planets extends Component {
                 <div className="row d-flex justify-content-center">
                   {this.state.planetsList.map(planet => {
                     return (
-                      <Cards />
+                      <Cards key={planet.name} name={planet.name} prop1={`Rotation period: ${planet.rotation_period}`} prop2={`Orbital  Period: ${planet.orbital_period}`} prop3={`Diameter: ${planet.diameter}`} prop4={`Climate: ${planet.climate}`}
+                       prop5={`Gravity: ${planet.gravity}`} prop6={`Terrain: ${planet.terrain}`} prop7={`Surface water: ${planet.surface_water}`} prop8={`Population: ${planet.population}`}
+                      />
                     )
                   })}
                 </div>

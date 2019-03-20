@@ -60,7 +60,7 @@ class Characters extends Component {
   
   handleShowRandom = () => {
     // I'm too dumb to get it the special way i wanted so we'll just go with random pages 😔
-    const randomPage = Math.floor(Math.random() * 9);
+    const randomPage = Math.floor(Math.random() * 9) + 1;
     const urlLink = `https://swapi.co/api/people/?page=${randomPage}`;
     this.searchRandomPage(urlLink);
   }
@@ -119,7 +119,7 @@ class Characters extends Component {
               {this.state.charactersList.map(character => {
                 return (
                   <Cards
-                    key={character.name} name={character.name} birth={character.birth_year} height={character.height} mass={character.mass} gender={character.gender} skin={character.skin_color} hair={character.hair_color} eye={character.eye_color} onClick={this.saveCharacter}
+                    key={character.name} name={character.name} prop1={`Birth year: ${character.birth_year}`} prop2={`Height: ${character.height}`} prop3={`Mass: ${character.mass}`} prop4={`Gender: ${character.gender}`} prop5={`Skin color: ${character.skin_color}`} prop6={`Hair color: ${character.hair_color}`} prop7={`Eye color: ${character.eye_color}`} onClick={this.saveCharacter}
                   />
                 )
               })}
