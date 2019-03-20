@@ -5,7 +5,7 @@ class Saved extends Component {
 
   render() {
     return(
-      <h1>this is saved page</h1>
+      <h1>hi im a saved page which will show you all your saved stuff soon!</h1>
     )
   }
 }
