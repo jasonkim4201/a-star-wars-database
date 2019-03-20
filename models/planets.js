@@ -29,7 +29,8 @@ const planetsSchema = new Schema({
     required: true
   },
   terrain: Array,
-  surface_water: String
+  surface_water: String,
+  population: String
 });
 
 const planets = mongoose.model("planets", planetsSchema);

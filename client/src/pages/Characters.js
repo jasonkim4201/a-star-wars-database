@@ -36,7 +36,7 @@ class Characters extends Component {
   }
 
   searchRandomPage = query => {
-    queryAPI.queryAllCharacters(query)
+    queryAPI.queryRandomCharacters(query)
       .then(res => {
         const charactersList = res.data.results.map(character => {
           return {
@@ -57,14 +57,12 @@ class Characters extends Component {
         console.log(error);
       })
   }
-
-  newArray = [];
   
   handleShowRandom = () => {
     // I'm too dumb to get it the special way i wanted so we'll just go with random pages 😔
     const randomPage = Math.floor(Math.random() * 9);
     const urlLink = `https://swapi.co/api/people/?page=${randomPage}`;
-    this.searchRandomPage(urlLink)
+    this.searchRandomPage(urlLink);
   }
 
   handleInputChange = event => {
@@ -110,7 +108,6 @@ class Characters extends Component {
             <br />
             <SearchRandomBtn word="character" onClick={this.handleShowRandom} />
           </div>
-
           {/* place results here with a fuild container */}
           <div className="container-fluid">
               {/* if there's something in characters list then search result stuff will appear */}
@@ -129,9 +126,7 @@ class Characters extends Component {
             </div>
             </React.Fragment>
             }
-
           </div>
-
         </div>
       </React.Fragment>
     )

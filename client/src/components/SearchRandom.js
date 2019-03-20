@@ -5,7 +5,7 @@ const SearchRandomBtn = (props) => {
     <React.Fragment>
       <p className="text-center">Don't know what {props.word} to search?</p>
       <div className="d-flex justify-content-center">
-        <button className="btn btn-danger" onClick={() => props.onClick()}>Show all</button>
+        <button className="btn btn-danger" onClick={() => props.onClick()}>Show random</button>
       </div>
     </React.Fragment>
   )

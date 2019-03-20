@@ -1,11 +1,27 @@
 import React, {Component} from "react";
+import SearchBar from "../components/Searchbar";
+import SearchRandomBtn from "../components/SearchRandom";
 
 class Starships extends Component {
-  state = {}
+  state = {
+    searchTerm: "",
+    starshipsList: []
+  }
 
   render() {
     return(
-      <h1>pew pew pew ships here</h1>
+      <React.Fragment>
+        <div className="text-light">
+          <div className="my-5 container">
+            <SearchBar />
+            <br />
+            <SearchRandomBtn />
+          </div>
+          <div className="container-fluid">
+            
+          </div>
+        </div>
+      </React.Fragment>
     )
   }
 }

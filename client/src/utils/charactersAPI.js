@@ -10,7 +10,7 @@ export default {
   saveCharacter(characterData) {
     return axios.post("/api/characters", characterData);
   },
-  // add update character later after I see this shit works properly...
+  // reminder to add update character when this is all done
   deleteCharacter(characterId) {
     return axios.delete(`/api/characters/${characterId}`);
   }
