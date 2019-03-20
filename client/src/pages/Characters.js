@@ -115,7 +115,7 @@ class Characters extends Component {
             <React.Fragment>
             <h5>Your search results:</h5>
             <div className="row d-flex justify-content-center">
-              {/* this is where i will map out my cards */}
+              {/* this is where i will map out my cards and wall of props */}
               {this.state.charactersList.map(character => {
                 return (
                   <Cards
