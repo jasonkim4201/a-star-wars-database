@@ -122,7 +122,7 @@ class Characters extends Component {
                     key={character.name} name={character.name} prop1={`Birth year: ${character.birth_year}`} prop2={`Height: ${character.height}`} prop3={`Mass: ${character.mass}`} prop4={`Gender: ${character.gender}`} prop5={`Skin color: ${character.skin_color}`} prop6={`Hair color: ${character.hair_color}`} prop7={`Eye color: ${character.eye_color}`} onClick={this.saveCharacter}
                   />
                 )
-              })}
+              })} 
             </div>
             </React.Fragment>
             }

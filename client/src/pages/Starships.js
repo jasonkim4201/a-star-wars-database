@@ -16,7 +16,7 @@ class Starships extends Component {
     queryAPI.queryStarships(query)
       .then(res => {
         const starshipsList = res.data.results.map(starship => {
-          // name, model, manufacturer, cost_in_credits, crew, passengers, cargo, starship_class
+          // name, model, manufacturer, cost_in_credits, crew, passengers, cargo_capacity, starship_class
           return{
             name: starship.name,
             model: starship.model,
