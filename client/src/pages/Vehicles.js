@@ -94,7 +94,7 @@ class Vehicles extends Component {
           <div className="my-5 container">
             <SearchBar placeholder="Search a vehicle..." name="searchTerm" value={this.state.searchTerm} onSubmit={this.handleFormSubmit} onChange={this.handleInputChange} onClick={this.handleFormSubmit} />
             <br />
-            <SearchRandomBtn word="vehichle" onClick={this.handleSearchRandom}/>
+            <SearchRandomBtn word="vehicle" onClick={this.handleSearchRandom}/>
           </div>
           <div className="container-fluid">
             {this.state.vehiclesList.length > 0 &&
