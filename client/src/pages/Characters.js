@@ -124,7 +124,7 @@ class Characters extends Component {
                 )
               })} 
             </div>
-            </React.Fragment>
+            </React.Fragment> 
             }
           </div>
         </div>

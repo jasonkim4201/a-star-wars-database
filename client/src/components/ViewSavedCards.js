@@ -12,7 +12,7 @@ const ViewSavedCards = (props) => {
         <div className="d-flex justify-content-between">
           <h5>{props.name}</h5>
           {/* why does react freak out over emojis? whatever pressing backspace once makes it stop yelling at me */}
-          <button className="btn btn-sm">🗑</button>
+          <button onClick={() => props.onClick(props.deleteKey, props.deleteId)} className="btn btn-sm">🗑</button>
         </div>
         <div>{props.birth_year}</div>
         <div>{props.height}</div>
