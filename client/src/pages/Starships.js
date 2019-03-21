@@ -22,12 +22,13 @@ class Starships extends Component {
             model: starship.model,
             manufacturer: starship.manufacturer,
             cost_in_credits: starship.cost_in_credits,
-            crew: starship.crew.crew,
+            crew: starship.crew,
             passengers: starship.passengers,
             cargo_capacity: starship.cargo_capacity,
             starship_class: starship.starship_class
           };
         });
+        console.log(starshipsList)
         this.setState({ starshipsList });
       })
       .catch(error => console.log(error));
@@ -48,6 +49,7 @@ class Starships extends Component {
             starship_class: starship.starship_class
           };
         });
+        console.log(starshipsList)
         this.setState({ starshipsList });
       })
       .catch(error => console.log(error));
