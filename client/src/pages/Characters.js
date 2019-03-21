@@ -27,12 +27,9 @@ class Characters extends Component {
             gender: character.gender
           };
         });
-        console.log(charactersList);
         this.setState({ charactersList });
       })
-      .catch(error => {
-        console.log(error);
-      });
+      .catch(error => console.log(error));
   }
 
   searchRandomPage = query => {
@@ -50,12 +47,9 @@ class Characters extends Component {
             gender: character.gender
           };
         });
-        console.log(charactersList);
         this.setState({ charactersList });
       })
-      .catch(error => {
-        console.log(error);
-      })
+      .catch(error => console.log(error))
   }
   
   handleShowRandom = () => {
@@ -89,12 +83,8 @@ class Characters extends Component {
     const characterPicked = this.state.charactersList.find(character => character.name === characterName);
 
     charactersAPI.saveCharacter(characterPicked)
-      .then(res => {
-        console.log(res.data);
-      })
-      .catch(error => {
-        console.log(error);
-      })
+      .then(res => res.data)
+      .catch(error => console.log(error))
   }
 
   render() {

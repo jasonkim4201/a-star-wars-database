@@ -27,7 +27,6 @@ class Planets extends Component {
             population: planet.population
           };
         });
-        console.log(planetsList);
         this.setState({ planetsList });
       })
       .catch(error => console.log(error));
@@ -49,7 +48,6 @@ class Planets extends Component {
             population: planet.population
           };
         });
-        console.log(planetsList);
         this.setState({ planetsList });
       })
       .catch(error => console.log(error));
@@ -82,7 +80,7 @@ class Planets extends Component {
     // find planet based on id and match it
     const planetPicked = this.state.planetsList.find(planet => planet.name === planetName);
     planetsAPI.savePlanet(planetPicked)
-      .then(res => console.log(res.data))
+      .then(res => res.data)
       .catch(error => console.log(error));
   }
 

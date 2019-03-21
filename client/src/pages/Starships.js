@@ -28,7 +28,6 @@ class Starships extends Component {
             starship_class: starship.starship_class
           };
         });
-        console.log(starshipsList);
         this.setState({ starshipsList });
       })
       .catch(error => console.log(error));
@@ -49,7 +48,6 @@ class Starships extends Component {
             starship_class: starship.starship_class
           };
         });
-        console.log(starshipsList);
         this.setState({ starshipsList });
       })
       .catch(error => console.log(error));
@@ -82,7 +80,7 @@ class Starships extends Component {
     // find starship by the names from state
     const starshipPicked = this.state.starshipsList.find(starship => starship.name === starshipName);
     starshipsAPI.saveStarship(starshipPicked)
-      .then(res => console.log(res.data))
+      .then(res => res.data)
       .catch(error => console.log(error));
   }
 

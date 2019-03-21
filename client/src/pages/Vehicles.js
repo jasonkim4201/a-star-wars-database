@@ -29,7 +29,6 @@ class Vehicles extends Component {
             vehicle_class: vehicle.vehicle_class
           };
         });
-        console.log(vehiclesList);
         this.setState({ vehiclesList });
       })
       .catch(error => console.log(error));
@@ -50,7 +49,6 @@ class Vehicles extends Component {
             vehicle_class: vehicle.vehicle_class
           };
         });
-        console.log(vehiclesList);
         this.setState({ vehiclesList });
       })
       .catch(error => console.log(error));
@@ -83,7 +81,7 @@ class Vehicles extends Component {
     // find vehicle by name and match it within the state
     const vehiclePicked = this.state.vehiclesList.find(vehicle => vehicle.name === vehicleName);
     vehicleAPI.saveVehicle(vehiclePicked)
-      .then(res => console.log(res.data))
+      .then(res => res.data)
       .catch(error => console.log(error));
   }
 

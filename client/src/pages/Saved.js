@@ -23,10 +23,7 @@ class Saved extends Component {
   // once items are retrieved then we can set the state of the partcular field
   getCharacters = () => {
     charactersAPI.getSavedCharacters()
-      .then(res => {
-        console.log(res.data)
-        this.setState({ charactersList: res.data })
-      })
+      .then(res => this.setState({ charactersList: res.data }))
       .catch(error => console.log(error));
   }
   getPlanets = () => {
