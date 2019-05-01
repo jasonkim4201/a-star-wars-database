@@ -1,5 +1,4 @@
 # A star wars database
 
-Hello. I am just reinforcing my mern skills and experimenting with a new things here and there. This website is powered by Mongo, Express.js, React, and Node.js. 
+This is a simple star wars database powered by the star wars API. You can search anything about the star wars universe by a certain catagory and it will return results. And you can even save that data! If you are unsure what to search for you can always hit search random to yield a random group of entries.
 
-[preview of a page so far for anyone looking](https://gyazo.com/297bb21095e339889edd3501f97ec8a7)
